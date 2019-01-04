@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Super Heroes Almanac</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div id="app" class="heroes-almanac-container">
+            <div class="title">{{HeroesAlmanac.title}}</div>
+            <div class="subtitle">
+                <p v-html="HeroesAlmanac.subtitle"></p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col" v-for="(item, index) in HeroesAlmanac.heroes">
+                        <div v-bind:class="returnClass(index)">
+                            <div class="circle">
+                                <img v-bind:src="item.avatar">
+                            </div>
+                            <div class="heroName">{{item.heroName}}</div>
+                            <div class="secretIdentity">{{item.secretIdentity}}</div>
+                            <div class="description">
+                                <p v-html="item.description"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
